@@ -1,3 +1,65 @@
-# BVU Retention model
+# BVU First Year Students retention analysis and machine learning model
 
+## Introduction
 
+The project uses the data about first year students at Buena Vista University. The project studies effects of each feature in the data, builds predictive models for student retention, and analyzes them. 
+
+## Data
+
+Note that the data used in the project does not contain personally identifiable information. The race, sex, dorm, program, and other features have been scrambled to make it impossible to identify each individual student. The race, dorm, or school of major letters cannot be used to find out the actual race or the university dorm.
+
+The list of features in the data is as follows:
+
+* Race -- letter abbreviation of the race
+* International -- int, 1 -- international student
+* Sex -- int, indicator of students' gender
+* Miles -- categorical, distance from home
+* Commuter -- int, 1 -- commuter
+* Dorm -- categorical, indicates the dorm code
+* IowaResident -- int, 1 -- resident of Iowa
+* SchoolofMajor -- categorical, code for the school of major
+* Athlete -- int, athlete status
+* HSRank -- float, rank at High School
+* ACTXxxx -- ACT scores:
+    * ACTComp -- float, ACT Comp score
+    * ACTMath -- float, ACT Math score
+    * ACTEng -- float, ACT English score
+* HSGPA -- float, High School GPA score
+* BVGPA -- float, Buena Vista University GPA score
+* Hrs -- float, credit hours taken last semester
+* Returned -- int, target variable -- student returned (1) or not (0)
+
+The analysis shows that the following features have predictive power:
+
+* miles_missing, mean_miles, log_mean_miles;
+* academic hours taken at BVU;
+* International, Sex, Commuter, IowaResident;
+* Race_B, Race_J, Race_A, Race_E;
+* HSRank_present, HSGPA_present, ACTXXX_present;
+* BVGPA, HSGPA, HSRank, ACTXXX;
+* Dorms U (unknown), B, E, and A;
+* School of Major == K;
+
+## Modeling
+
+The project tests several machine learning models on the data. The short list of the best models includes:
+
+* Naive Bayes
+* K Nearest Neighbors
+* Gradient Boosting
+* Artificial Neural Network
+* Support Vector Machine
+
+Using fictious numbers it is possible to estimate the financial benefits of using a predictive model. Suppose that each student brings \$30K each year and cost of intervening action that persuades a student to stay at the university costs \$1K. Then, a predictive model saves on average $5K for each first year student. 
+
+## Conclusion
+
+In summary, several predictive models (Support Vector machine and Naive Bayes) can be used in practice. 
+
+Further improvements are possible by:
+
+* Using more data:
+    * More students;
+    * More information about each student, such as their demographics, performance at classes taken, etc.
+* Applying other strategies for feature selection, creating features, cleaning data, and imputing missing values;
+* Fine tuning machine learning algorithms;
